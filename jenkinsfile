@@ -8,10 +8,13 @@ pipeline {
       }
     }
     stage('Build') {
-      steps {
-        sh './build.sh'
-      }
-    }
+        steps {
+            sh '''
+            chmod +x build.sh
+            ./build.sh
+            '''
+        }
+        }
     stage('Test') {
       steps {
         sh 'echo "Simulating test command"'
